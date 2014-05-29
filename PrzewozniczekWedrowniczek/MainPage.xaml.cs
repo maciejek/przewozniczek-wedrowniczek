@@ -42,5 +42,18 @@ namespace PrzewozniczekWedrowniczek
         {
             // Add code to perform some action here.
         }
+
+        private void ToDrinksPanel_Click(object sender, RoutedEventArgs e)
+        {
+            PivotPanel.SelectedIndex = 1;
+        }
+
+        private void Minus_Click(object sender, RoutedEventArgs e)
+        {
+        }
+
+        private void Plus_Click(object sender, RoutedEventArgs e)
+        {
+        }
     }
 }

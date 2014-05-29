@@ -36,49 +36,50 @@
          -->
 
         <!--Pivot Control-->
-        <phone:Pivot Title="PRZEWOŹNICZEK/WĘDROWNICZEK">
+        <phone:Pivot x:Name="PivotPanel" Title="PRZEWOŹNICZEK/WĘDROWNICZEK">
             <!--Pivot item one-->
-            <phone:PivotItem Header="parametry" Margin="12,28,12,37">
-                <Grid x:Name="ParametersPanel" Grid.Row="1" Margin="12,0,12,10">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="0.5*"/>
-                        <RowDefinition Height="1.2*"/>
-                        <RowDefinition Height="0.5*"/>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="0.5*"/>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="0.5*"/>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="0.5*"/>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="0.5*"/>
-                        <RowDefinition Height="*"/>
-
-
-
-                    </Grid.RowDefinitions>
-                    <TextBlock Grid.Row="0" Grid.Column="0" Text="Płeć: "></TextBlock>
-                    <TextBlock Grid.Row="2" Grid.Column="0" Text="Waga: "></TextBlock>
-                    <TextBlock Grid.Row="4" Grid.Column="0" Text="Czas oczekiwania na autobus: "></TextBlock>
-                    <TextBlock Grid.Row="6" Grid.Column="0" Text="Czas jazdy autobusem: "></TextBlock>
-                    <TextBlock Grid.Row="8" Grid.Column="0" Text="Czas dojścia: "></TextBlock>
-                    <TextBlock Grid.Row="10" Grid.Column="0" Text="Od ilu godzin pijesz: "></TextBlock>
-
-                    <StackPanel Grid.Row="1" Orientation="Horizontal">
+            <phone:PivotItem Header="parametry" Margin="12,28,12,13">
+                <StackPanel>
+                    <TextBlock Text="Płeć: " Margin="0, 4 0, 0"></TextBlock>
+                    <StackPanel Orientation="Horizontal">
                         <RadioButton x:Name="ManButton" Content="Mężczyzna" GroupName="Group1" 
                    Checked="RadioButton_Checked" IsChecked="True"/>
                         <RadioButton x:Name="WomanButton" Content="Kobieta" GroupName="Group1" 
                    Checked="RadioButton_Checked"/>
                     </StackPanel>
-                    <TextBox x:Name="ManWeight" Grid.Row="3" InputScope="Number"></TextBox>
-                    <TextBox x:Name="WaitingTime" Grid.Row="5" InputScope="Number"></TextBox>
-                    <TextBox x:Name="TravellingTime" Grid.Row="7" InputScope="Number"></TextBox>
-                    <TextBox x:Name="WalkingTime" Grid.Row="9" InputScope="Number"></TextBox>
-                    <TextBox x:Name="DrinkingTime" Grid.Row="11" InputScope="Number"></TextBox>
+
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Text="Waga: " Grid.Row="0" Grid.Column="0" Margin="0, 4, 0, 0"></TextBlock>
+                        <TextBox x:Name="ManWeight" Grid.Row="1" Grid.Column="0" InputScope="Number"></TextBox>
+
+                        <TextBlock Text="Od ilu godzin pijesz: "  Grid.Row="0" Grid.Column="1" Margin="0, 4, 0, 0"></TextBlock>
+                        <TextBox x:Name="DrinkingTime" Grid.Row="1" Grid.Column="1" InputScope="Number"></TextBox>
+                    </Grid>
 
 
+                    <TextBlock Text="Czas oczekiwania na autobus: " Margin="0, 4, 0, 0"></TextBlock>
+                    <TextBox x:Name="WaitingTime" InputScope="Number"></TextBox>
+                    
+                    <TextBlock Text="Czas jazdy autobusem: " Margin="0, 4, 0, 0"></TextBlock>
+                    <TextBox x:Name="TravellingTime" InputScope="Number"></TextBox>
+                    
+                    <TextBlock Text="Czas dojścia na piechotę: " Margin="0, 4, 0, 0" ></TextBlock>
+                    <TextBox x:Name="WalkingTime" InputScope="Number"></TextBox>
 
-                </Grid>
+                    <Button Name="ToDrinksPanel" Grid.ColumnSpan="4" Content="Definiowanie trunków" Click="ToDrinksPanel_Click"></Button>
+
+
+                </StackPanel>
             </phone:PivotItem>
 
             <!--Pivot item two-->
@@ -99,36 +100,36 @@
                         <ColumnDefinition Width="*"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
                     <Image Source="Images\beer.png" Stretch="UniformToFill" Grid.Row="0" Grid.Column="0" Margin="0,20,20,20" />
-                    <Button x:Name="BeerPlus" Grid.Row="0" Grid.Column="1" Width="100" Height="100">
+                    <Button x:Name="BeerPlus" Grid.Row="0" Grid.Column="1" Width="100" Height="100" Click="Plus_Click">
                         <StackPanel>
                             <Image Source="Assets\add.png" Stretch="UniformToFill" Grid.Row="0" Grid.Column="0"/>
                         </StackPanel>
                     </Button>
-                    <Button x:Name="BeerMinus" Grid.Row="0" Grid.Column="2" Width="100" Height="100">
+                    <Button x:Name="BeerMinus" Grid.Row="0" Grid.Column="2" Width="100" Height="100" Click="Minus_Click">
                         <StackPanel>
                             <Image Source="Assets\minus.png" Stretch="UniformToFill" Grid.Row="0" Grid.Column="0"/>
                         </StackPanel>
                     </Button>
 
                     <Image Source="Images\wine.png" Stretch="Fill" Grid.Row="1" Grid.Column="0" Margin="20,20,20,20"/>
-                    <Button x:Name="WinePlus" Grid.Row="1" Grid.Column="1" Width="100" Height="100">
+                    <Button x:Name="WinePlus" Grid.Row="1" Grid.Column="1" Width="100" Height="100" Click="Plus_Click">
                         <StackPanel>
                             <Image Source="Assets\add.png" Stretch="UniformToFill" Grid.Row="0" Grid.Column="0"/>
                         </StackPanel>
                     </Button>
-                    <Button x:Name="WineMinus" Grid.Row="1" Grid.Column="2" Width="100" Height="100">
+                    <Button x:Name="WineMinus" Grid.Row="1" Grid.Column="2" Width="100" Height="100" Click="Minus_Click">
                         <StackPanel>
-                            <Image Source="Assets\minus.png" Stretch="UniformToFill" Grid.Row="0" Grid.Column="0"/>
+                            <Image Source="Assets\minus.png" Stretch="UniformToFill" Grid.Row="0" Grid.Column="0" />
                         </StackPanel>
                     </Button>
 
                     <Image Source="Images\shot.png" Stretch="Fill" Grid.Row="2" Grid.Column="0" Margin="20,20,20,20"/>
-                    <Button x:Name="VodkaPlus" Grid.Row="2" Grid.Column="1" Width="100" Height="100">
+                    <Button x:Name="VodkaPlus" Grid.Row="2" Grid.Column="1" Width="100" Height="100" Click="Plus_Click">
                         <StackPanel>
                             <Image Source="Assets\add.png" Stretch="UniformToFill" Grid.Row="0" Grid.Column="0"/>
                         </StackPanel>
                     </Button>
-                    <Button x:Name="VodkaMinus" Grid.Row="2" Grid.Column="2" Width="100" Height="100">
+                    <Button x:Name="VodkaMinus" Grid.Row="2" Grid.Column="2" Width="100" Height="100" Click="Minus_Click">
                         <StackPanel>
                             <Image Source="Assets\minus.png" Stretch="UniformToFill" Grid.Row="0" Grid.Column="0"/>
                         </StackPanel>

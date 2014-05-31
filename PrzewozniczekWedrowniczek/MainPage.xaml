@@ -42,9 +42,9 @@
                 <StackPanel>
                     <TextBlock Text="Płeć: " Margin="0, 4 0, 0"></TextBlock>
                     <StackPanel Orientation="Horizontal">
-                        <RadioButton x:Name="ManButton" Content="Mężczyzna" GroupName="Group1" 
+                        <RadioButton x:Name="ManRadio" Content="Mężczyzna" GroupName="Group1" 
                    Checked="RadioButton_Checked" IsChecked="True"/>
-                        <RadioButton x:Name="WomanButton" Content="Kobieta" GroupName="Group1" 
+                        <RadioButton x:Name="WomanRadio" Content="Kobieta" GroupName="Group1" 
                    Checked="RadioButton_Checked"/>
                     </StackPanel>
 
@@ -60,21 +60,21 @@
                         </Grid.ColumnDefinitions>
 
                         <TextBlock Text="Waga: " Grid.Row="0" Grid.Column="0" Margin="0, 4, 0, 0"></TextBlock>
-                        <TextBox x:Name="ManWeight" Grid.Row="1" Grid.Column="0" InputScope="Number"></TextBox>
+                        <TextBox x:Name="ManWeight" Grid.Row="1" Grid.Column="0" Text="{Binding Weight, Mode=TwoWay}" InputScope="Number"></TextBox>
 
                         <TextBlock Text="Od ilu godzin pijesz: "  Grid.Row="0" Grid.Column="1" Margin="0, 4, 0, 0"></TextBlock>
-                        <TextBox x:Name="DrinkingTime" Grid.Row="1" Grid.Column="1" InputScope="Number"></TextBox>
+                        <TextBox x:Name="DrinkingTime" Grid.Row="1" Grid.Column="1" Text="{Binding DrinkingTime, Mode=TwoWay}" InputScope="Number"></TextBox>
                     </Grid>
 
 
                     <TextBlock Text="Czas oczekiwania na autobus: " Margin="0, 4, 0, 0"></TextBlock>
-                    <TextBox x:Name="WaitingTime" InputScope="Number"></TextBox>
+                    <TextBox x:Name="WaitingTime" Text="{Binding WaitingTime, Mode=TwoWay}" InputScope="Number"></TextBox>
                     
                     <TextBlock Text="Czas jazdy autobusem: " Margin="0, 4, 0, 0"></TextBlock>
-                    <TextBox x:Name="TravellingTime" InputScope="Number"></TextBox>
+                    <TextBox x:Name="TravellingTime" Text="{Binding RidingTime, Mode=TwoWay}" InputScope="Number"></TextBox>
                     
                     <TextBlock Text="Czas dojścia na piechotę: " Margin="0, 4, 0, 0" ></TextBlock>
-                    <TextBox x:Name="WalkingTime" InputScope="Number"></TextBox>
+                    <TextBox x:Name="WalkingTime" Text="{Binding WalkingTime, Mode=TwoWay}" InputScope="Number"></TextBox>
 
                     <Button Name="ToDrinksPanel" Grid.ColumnSpan="4" Content="Definiowanie trunków" Click="ToDrinksPanel_Click"></Button>
 
@@ -84,13 +84,14 @@
 
             <!--Pivot item two-->
             <phone:PivotItem Header="trunki">
-                <Grid x:Name="DrinksPanel" Grid.Row="1" Margin="12,0,12,90">
+                <Grid x:Name="DrinksPanel" Grid.Row="1" Margin="12,0,12,0">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
                         <RowDefinition Height="0.5*"/>
-                        
+
 
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
@@ -136,12 +137,18 @@
                     </Button>
 
 
-                    <TextBlock Name="BeerCount" Grid.Row="0" Grid.Column="3" Text="0" FontSize="100"></TextBlock>
-                    <TextBlock Name="WineCount" Grid.Row="1" Grid.Column="3" Text="0" FontSize="100"></TextBlock>
-                    <TextBlock Name="VodkaCount" Grid.Row="2" Grid.Column="3" Text="0" FontSize="100"></TextBlock>
+                    <TextBlock Name="BeerCount" Grid.Row="0" Grid.Column="3" Text="{Binding BeerCount, Mode=TwoWay}" FontSize="100"></TextBlock>
+                    <TextBlock Name="WineCount" Grid.Row="1" Grid.Column="3" Text="{Binding WineCount, Mode=TwoWay}" FontSize="100"></TextBlock>
+                    <TextBlock Name="VodkaCount" Grid.Row="2" Grid.Column="3" Text="{Binding VodkaCount, Mode=TwoWay}" FontSize="100"></TextBlock>
 
-
-                    <Button Name="Calculate" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="4" Content="I co teraz zrobić?"></Button>
+                    <StackPanel Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="4">
+                        <TextBlock Text="Chcę wrócić: " Margin="0, 4 0, 0"></TextBlock>
+                        <StackPanel Orientation="Horizontal">
+                            <CheckBox x:Name="WantFast" Content="Szybko" />
+                            <CheckBox x:Name="WantSafe" Content="Bezpiecznie"/>
+                        </StackPanel>
+                    </StackPanel>
+                    <Button Name="Calculate" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="4" Content="I co teraz zrobić?" Click="Calculate_Click"></Button>
 
 
                 </Grid>

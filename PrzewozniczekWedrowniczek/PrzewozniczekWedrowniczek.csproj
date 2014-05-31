@@ -90,21 +90,34 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Alcohol.cs" />
+    <Compile Include="_controller\DecisionAlgorithm.cs" />
+    <Compile Include="_controller\FactController.cs" />
+    <Compile Include="_model\Alcohol.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="_model\DrinkModel.cs" />
     <Compile Include="LocalizedStrings.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PromileCalculator.cs" />
+    <Compile Include="_model\fact\Fact1.cs" />
+    <Compile Include="_model\fact\Fact2.cs" />
+    <Compile Include="_model\fact\Fact3.cs" />
+    <Compile Include="_model\fact\Fact4.cs" />
+    <Compile Include="_model\fact\FactW.cs" />
+    <Compile Include="_model\fact\FactY.cs" />
+    <Compile Include="_model\fact\IFact.cs" />
+    <Compile Include="_model\ParametersModel.cs" />
+    <Compile Include="_controller\PromileCalculator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\AppResources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>AppResources.resx</DependentUpon>
     </Compile>
+    <Compile Include="_model\Result.cs" />
+    <Compile Include="_model\Sex.cs" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -154,7 +167,9 @@
       <LastGenOutput>AppResources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="_view\" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
